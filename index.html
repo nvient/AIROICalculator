@@ -42,15 +42,18 @@
     }
     label {
       display: block;
-      margin: 12px 0 6px;
+      margin-top: 16px;
       font-weight: 500;
+      width: 100%;
     }
     input, select {
       width: 100%;
       padding: 10px;
+      margin-top: 4px;
       border-radius: 8px;
       border: 1px solid #ccc;
       color: #082f49;
+      box-sizing: border-box;
     }
     .result-item {
       display: flex;
@@ -80,6 +83,7 @@
       border-radius: 8px;
       font-family: 'Lato', sans-serif;
       cursor: pointer;
+      margin-top: 20px;
     }
   </style>
   <script>
@@ -128,7 +132,6 @@
       <label>Output increase (%)</label>
       <input id="output" type="number" value="20" />
 
-      <br /><br />
       <button onclick="calculateROI()">Calculate</button>
     </div>
 
