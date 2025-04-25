@@ -15,6 +15,7 @@
       flex-direction: column;
       align-items: center;
       gap: 30px;
+      color: #082f49;
     }
     .logo {
       text-align: center;
@@ -49,25 +50,36 @@
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      color: #082f49;
     }
     .result-item {
       display: flex;
       align-items: center;
       margin-bottom: 24px;
-    }
-    .result-item i {
-      font-size: 28px;
-      margin-right: 16px;
+      font-size: 48px;
       color: #082f49;
     }
+    .result-item i {
+      display: inline-block;
+      width: 48px;
+    }
     .result-item .value {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       color: #082f49;
     }
     .result-item .label {
-      font-size: 14px;
-      color: #444;
+      font-size: 16px;
+      color: #082f49;
+    }
+    button {
+      background: #308c83;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
     }
   </style>
   <script>
@@ -104,8 +116,8 @@
       <label>Time saved per day (hr)</label>
       <input id="timeSaved" type="number" step="0.1" value="0.5" />
 
-    <label>Hourly wage</label>
-    <input id="wage" type="text" value="$30" />
+      <label>Hourly wage</label>
+      <input id="wage" type="text" value="$30" />
 
       <label>Previous error rate (%)</label>
       <input id="prevError" type="number" step="1" value="5" />
@@ -117,7 +129,7 @@
       <input id="output" type="number" value="20" />
 
       <br /><br />
-      <button onclick="calculateROI()" style="padding: 10px 20px; background: #308c83; color: white; border: none; border-radius: 8px;">Calculate</button>
+      <button onclick="calculateROI()">Calculate</button>
     </div>
 
     <div class="panel">
@@ -147,7 +159,7 @@
       </div>
 
       <div class="result-item">
-       📈
+        📈
         <div>
           <div class="value" id="revenueResult">20%</div>
           <div class="label">Increase in revenue after AI adoption</div>
