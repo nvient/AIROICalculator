@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f8f6f4;
+      background: #082f49;
       margin: 0;
       padding: 40px;
       display: flex;
@@ -25,7 +25,7 @@
     .panel h2 {
       font-size: 24px;
       margin-bottom: 20px;
-      color: #4b2e83;
+      color: #308c83;
     }
     label {
       display: block;
@@ -46,12 +46,12 @@
     .result-item i {
       font-size: 28px;
       margin-right: 16px;
-      color: #4b2e83;
+      color: #308c83;
     }
     .result-item .value {
       font-size: 20px;
       font-weight: bold;
-      color: #4b2e83;
+      color: #308c83;
     }
     .result-item .label {
       font-size: 14px;
@@ -88,11 +88,7 @@
     <input id="timeSaved" type="number" step="0.1" value="0.5" />
 
     <label>Hourly wage</label>
-    <select id="wage">
-      <option>$30</option>
-      <option>$40</option>
-      <option>$50</option>
-    </select>
+    <input id="wage" type="text" value="$30" />
 
     <label>Previous error rate (%)</label>
     <input id="prevError" type="number" step="1" value="5" />
@@ -104,7 +100,7 @@
     <input id="output" type="number" value="20" />
 
     <br /><br />
-    <button onclick="calculateROI()" style="padding: 10px 20px; background: #4b2e83; color: white; border: none; border-radius: 8px;">Calculate</button>
+    <button onclick="calculateROI()" style="padding: 10px 20px; background: #dde1ea; color: white; border: none; border-radius: 8px;">Calculate</button>
   </div>
 
   <div class="panel">
