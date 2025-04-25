@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI ROI Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f6f4;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .panel {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      width: 320px;
+    }
+    .panel h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4b2e83;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 500;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .result-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .result-item i {
+      font-size: 28px;
+      margin-right: 16px;
+      color: #4b2e83;
+    }
+    .result-item .value {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4b2e83;
+    }
+    .result-item .label {
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+  <script>
+    function calculateROI() {
+      const employees = parseFloat(document.getElementById('employees').value);
+      const timeSaved = parseFloat(document.getElementById('timeSaved').value);
+      const hourlyWage = parseFloat(document.getElementById('wage').value.replace('$',''));
+      const prevError = parseFloat(document.getElementById('prevError').value);
+      const newError = parseFloat(document.getElementById('newError').value);
+      const outputInc = parseFloat(document.getElementById('output').value);
+
+      const totalTime = employees * timeSaved * 5;
+      const yearlySavings = totalTime * hourlyWage * 52;
+      const errorReduction = ((prevError - newError) / prevError) * 100;
+
+      document.getElementById('timeResult').textContent = totalTime.toFixed(1) + ' hrs';
+      document.getElementById('costResult').textContent = '$' + yearlySavings.toLocaleString();
+      document.getElementById('errorResult').textContent = errorReduction.toFixed(0) + '%';
+      document.getElementById('revenueResult').textContent = outputInc.toFixed(0) + '%';
+    }
+  </script>
+</head>
+<body>
+  <div class="panel">
+    <h2>AI ROI Dashboard</h2>
+    <label>Number of employees</label>
+    <input id="employees" type="number" value="10" />
+
+    <label>Time saved per day (hr)</label>
+    <input id="timeSaved" type="number" step="0.1" value="0.5" />
+
+    <label>Hourly wage</label>
+    <select id="wage">
+      <option>$30</option>
+      <option>$40</option>
+      <option>$50</option>
+    </select>
+
+    <label>Previous error rate (%)</label>
+    <input id="prevError" type="number" step="1" value="5" />
+
+    <label>New error rate (%)</label>
+    <input id="newError" type="number" step="1" value="2" />
+
+    <label>Output increase (%)</label>
+    <input id="output" type="number" value="20" />
+
+    <br /><br />
+    <button onclick="calculateROI()" style="padding: 10px 20px; background: #4b2e83; color: white; border: none; border-radius: 8px;">Calculate</button>
+  </div>
+
+  <div class="panel">
+    <h2>Results</h2>
+    <div class="result-item">
+      <i>🕒</i>
+      <div>
+        <div class="value" id="timeResult">25.0 hrs</div>
+        <div class="label">Total time saved per week</div>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <i>💰</i>
+      <div>
+        <div class="value" id="costResult">$39,000</div>
+        <div class="label">Annual labor cost savings</div>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <i>📉</i>
+      <div>
+        <div class="value" id="errorResult">45%</div>
+        <div class="label">Decrease in errors</div>
+      </div>
+    </div>
+
+    <div class="result-item">
+      <i>📈</i>
+      <div>
+        <div class="value" id="revenueResult">20%</div>
+        <div class="label">Increase in revenue after AI adoption</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
